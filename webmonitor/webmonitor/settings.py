@@ -83,12 +83,22 @@ WSGI_APPLICATION = 'webmonitor.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'webmonitor',
-        'USER': 'postgres',
-        'PASSWORD': 'Meenakshi135!#',
+        'NAME': env('DATABASE_NAME'),
+        'USER': env('DATABASE_USER'),
+        'PASSWORD': env('DATABASE_PASS'),
         'HOST': 'localhost'
     }
 }
+SECRET_KEY = env('SECRET_KEY')
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'webmonitor',
+#         'USER': 'postgres',
+#         'PASSWORD': 'Meenakshi135!#',
+#         'HOST': 'localhost'
+#     }
+# }
 
 
 # Password validation
