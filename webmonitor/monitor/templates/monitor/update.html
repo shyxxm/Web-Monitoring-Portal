@@ -1,0 +1,26 @@
+{% extends 'monitor/home.html' %}
+
+<div class="modal" id="updateModal" >
+	<div class="modal-dialog" >
+		<div class="modal-content" >
+			<div class="modal-header" >
+				<h5 class="modal-title" >Update URL</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" ></button>
+			</div>
+			<div class="modal-body" >
+				<form>
+					<div class="mb-3" >
+						<label class="form-label required " >New URL</label>
+						<textarea class="form-control" ></textarea>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer" >
+				<form action="/update_url" >
+				<button   type="submit" class="btn btn-primary">Update</button>
+				</form>
+				<button type="submit" class="btn btn-danger" data-bs-dismiss="modal" >Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>

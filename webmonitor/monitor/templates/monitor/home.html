@@ -1,0 +1,152 @@
+{% extends 'monitor/base.html' %}
+
+{% load static %}
+
+
+
+{% block content %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Table 09</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	
+    <style>
+        table, th, td {
+          border: 1px solid black;
+        }
+
+		.space {
+			width:5px;
+			height:auto;
+			display:inline-block;
+		  }
+		  .modal-header{
+			background: #006400;
+			color: #fff;
+		  }
+		  .required:after{
+			content:"*";
+			color: red;
+		  }
+    </style>
+
+	</head>
+	<body>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">ViewQwest Websites</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="table-wrap">
+						<table class="table table-striped">
+						  <thead>
+						    <tr>
+						      <!-- <th>#</th> -->
+						      <th>URL</th>
+						      <th>Status</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+							{% for web in webs_list %}
+								<tr>
+								<!-- <th scope="row">
+									{{web.url.id}}
+								</th> -->
+								<td>
+									{{web.url.website}}
+									<a href="{% url 'delete_url' web=web.url.id %}" >
+									<button type="button" style="float: right;" class="btn btn-outline-danger">Delete</button>
+									</a>
+									<div class="space" ></div>
+									<!-- <button type="button" style="float: right;" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#updateModal" >Update</button> -->
+									<div class="modal" id="updateModal" >
+										<div class="modal-dialog" >
+											<div class="modal-content" >
+												<div class="modal-header" >
+													<h5 class="modal-title" >Update URL</h5>
+													<button type="button" class="btn-close" data-bs-dismiss="modal" ></button>
+												</div>
+												<div class="modal-body" >
+													<form>
+														<div class="mb-3" >
+															<label class="form-label required " >New URL</label>
+															<textarea class="form-control" ></textarea>
+															{{ form.as_p }}
+														</div>
+													</form>
+												</div>
+												<div class="modal-footer" >
+													<!-- <a href="{% url 'update_url' web=web.url.id %}" >
+													<button   type="submit" class="btn btn-primary">Update</button>
+													</a> -->
+													<button type="submit" class="btn btn-danger" data-bs-dismiss="modal" >Cancel</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</td>
+								{% if web.status == "True"  %}
+								<td> <a class="btn btn-success">Up</a> </td>
+								{% else %}
+								<td> <a class="btn btn-danger">Down</a> </td>
+								{% endif %}
+								</tr>
+							{% endfor %}
+						  </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- <div class="modal" id="updateModal" >
+		<div class="modal-dialog" >
+			<div class="modal-content" >
+				<div class="modal-header" >
+					<h5 class="modal-title" >Update URL</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" ></button>
+				</div>
+				<div class="modal-body" >
+					<form>
+						<div class="mb-3" >
+							<label class="form-label required " >New URL</label>
+							<textarea class="form-control" ></textarea>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer" >
+					<button   type="submit" class="btn btn-primary">Update</button>
+					<button type="submit" class="btn btn-danger" data-bs-dismiss="modal" >Cancel</button>
+				</div>
+			</div>
+		</div>
+	</div> -->
+
+	
+
+	
+
+  <script src="{% static 'main/js/jquery.min.js' %}"></script>
+  <script src="{% static 'main/js/popper.js' %}"></script>
+  <script src="{% static 'main/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'main/js/main.js' %}"></script>
+
+	</body>
+</html>
+
+
+
+{% endblock %}
+
