@@ -24,3 +24,17 @@ https://www.postgresql.org/download/
 python manage.py makemigrations #importing migrations
 python manage.py sqlmigrate monitor 0001
 python manage.py migrate
+
+Project Description:
+
+https://youtu.be/yz4YCvPHKds
+
+Frontend:
+1) HTML
+2) CSS
+3) Javascript
+
+Backend:
+1) Python
+2) Django Web framework
+3) PostgreSQL
