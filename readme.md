@@ -3,8 +3,8 @@ Web Monitoring Portal
 1) Setup
 
 The first thing to do is to clone the repository:
-$ git clone https://github.com/gocardless/sample-django-app.git
-$ cd sample-django-app
+$ git https://github.com/shyxxm/Web-Monitoring-Portal.git
+
 
 2) Create a virtual environment to install dependencies in and activate it:
 
